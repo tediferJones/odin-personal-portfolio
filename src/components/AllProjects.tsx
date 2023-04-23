@@ -13,13 +13,27 @@ function AllProjects() {
     fetch('https://api.github.com/users/tediferjones/repos?&per_page=100')
         .then(res => res.json())
         .then(data => {
-          // console.log(data.filter((item: { language: string }) => item.language !== null));
-          // setRepos(data);
+          let languages: { [key: string]: Array<string> } = {};
+          const allLanguages = [...new Set(data.map((item: { language: string }) => item.language))];
+          console.log(allLanguages)
+          allLanguages.map((item: any) => {
+            // console.log(languages);
+            // console.log(item)
+            languages[item] = data.filter((dataItem: { language: string }) => dataItem.language === item)
+          })
+          console.log(languages);
+          // console.log(data.filter((item: any) => item.language === 'TypeScript'))
+          // console.log(data.filter((item: any) => item.language === 'JavaScript'))
+          // console.log(data.filter((item: any) => item.language === 'Ruby'))
+          // console.log(data.filter((item: any) => ['HTML', 'CSS'].includes(item.language)))
+
           setRepos(data.filter((item: { language: string }) => item.language !== null));
         })
   }, []);
 
-  // filter out languages with no language, those are all practice repos we dont want to show
+  // This should return a series of dropdowns by language
+  //    - For Example: have languages JS, Python, Ruby, have each drop down show its projects
+  // State needs to be some kind of dynamic object
 
   return (
     <div>
