@@ -38,7 +38,9 @@ function AllProjects() {
   function getTotal() {
     // try using reduce instead
     let total = 0;
-    Object.keys(reposV2).forEach((item: string) => total = total + reposV2[item].length)
+    Object.keys(reposV2)
+        .filter((item: string) => item !== 'null')
+        .forEach((item: string) => total = total + reposV2[item].length)
     return total;
   }
 
@@ -53,18 +55,17 @@ function AllProjects() {
 
   return (
     <div>
-      <h1>All Projects ({getTotal()})</h1>
+      <h1 className='text-2xl'>All Projects ({getTotal()})</h1>
       {Object.keys(reposV2).filter((item: string) => item !== 'null').map((item: string) => {
         return (
           <div key={uuidv4()}>
-            <button className='text-2xl'
+            <button className='text-xl'
               onClick={toggleRepoList}
               value={`${item}RepoList`}
             >{item} ({reposV2[item].length})</button>
             <div className='hidden'
               id={`${item}RepoList`}
-            >
-              {reposV2[item].map((langData: repo) => {
+            >{reposV2[item].map((langData: repo) => {
                 return (
                   <div key={uuidv4()}>
                     <h1>{langData.name}</h1>

@@ -27,7 +27,7 @@ function FavProjects() {
 
   return (
     <div>
-      <h1>Recent Projects</h1>
+      <h1 className='text-2xl'>Recent Projects</h1>
       {recentRepos.map((item: repo) => {
         return (
           <div key={uuidv4()}>
