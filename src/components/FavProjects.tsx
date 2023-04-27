@@ -38,8 +38,6 @@ function FavProjects() {
             <iframe
               src={`https://tediferjones.github.io/${item.name}`}
               title={item.name}
-              width='512'
-              height='512'
             ></iframe>
           </div>
         )
