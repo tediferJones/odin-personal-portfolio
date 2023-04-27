@@ -26,22 +26,37 @@ function FavProjects() {
   // This page should return a series of cards for recent projects
 
   return (
-    <div>
-      <h1 className='text-2xl'>Recent Projects</h1>
-      {recentRepos.map((item: repo) => {
-        return (
-          <div key={uuidv4()}>
-            <h3>{item.name}</h3>
-            <h4>{item.language}</h4>
-            <a href={item.html_url}>CODE LINK</a>
-            <a href={`https://tediferjones.github.io/${item.name}`}>PAGE LINK</a>
-            <iframe
-              src={`https://tediferjones.github.io/${item.name}`}
-              title={item.name}
-            ></iframe>
-          </div>
-        )
-      })}
+    <div className='w-4/5 p-4'>
+      <h1 className='text-3xl py-4'>Recent Projects</h1>
+      <div className='flex flex-wrap'>
+        {recentRepos.map((item: repo) => {
+          return (
+            <div className='w-full lg:w-1/2 p-4'
+              key={uuidv4()}
+            >
+              <div className='flex justify-between p-4 text-xl'>
+                <h3 className='text-2xl'>{item.name}</h3>
+                <h4 className='text-xl'>{item.language}</h4>
+              </div>
+              <iframe
+                className='w-full'
+                src={`https://tediferjones.github.io/${item.name}`}
+                height='360'
+                width='360'
+                title={item.name}
+              ></iframe>
+              <div className='flex my-4 text-xl font-medium'>
+                <a className='flex-1 text-center p-4 flex justify-center items-center bg-blue-400'
+                  href={item.html_url}
+                >View Code</a>
+                <a className='flex-1 text-center p-4 flex justify-center items-center bg-orange-400'
+                  href={`https://tediferjones.github.io/${item.name}`}
+                >View Page</a>
+              </div>
+            </div>
+          )
+        })}
+      </div>
     </div>
   )
 }

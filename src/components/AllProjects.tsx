@@ -54,12 +54,15 @@ function AllProjects() {
   // To get the length of all arrays from our object, we need to loop through each of its keys, get array.length and add it some accumalator or something like that
 
   return (
-    <div>
-      <h1 className='text-2xl'>All Projects ({getTotal()})</h1>
+    <div className='bg-gray-100 w-full md:w-3/5 mb-8'>
+      <h1 className='text-3xl p-4'>All Projects ({getTotal()})</h1>
       {Object.keys(reposV2).filter((item: string) => item !== 'null').map((item: string) => {
         return (
-          <div key={uuidv4()}>
-            <button className='text-xl'
+          <div className='flex flex-col'
+            key={uuidv4()}
+          >
+            <hr />
+            <button className='text-2xl p-4 px-8 self-start'
               onClick={toggleRepoList}
               value={`${item}RepoList`}
             >{item} ({reposV2[item].length})</button>
@@ -67,8 +70,19 @@ function AllProjects() {
               id={`${item}RepoList`}
             >{reposV2[item].map((langData: repo) => {
                 return (
-                  <div key={uuidv4()}>
-                    <h1>{langData.name}</h1>
+                  <div className='text-xl flex flex-col md:flex-row px-16 py-4' 
+                    key={uuidv4()}
+                  >
+                    <h1 className='flex-1 flex items-center'>{langData.name}</h1>
+                    <div className='flex-1 flex'>
+                      <a className='flex-1 text-center p-4 flex justify-center items-center bg-blue-400'
+                        href={langData.html_url}
+                      >View Code</a>
+                      {langData.has_pages === false ? [] :
+                      <a className='flex-1 text-center p-4 flex justify-center items-center bg-orange-400'
+                        href={`https://tediferjones.github.io/${langData.name}`}
+                      >View Page</a>}
+                    </div>
                   </div>
                 )
               })}

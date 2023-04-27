@@ -12,7 +12,8 @@ function App() {
         <img className='float-left w-full md:w-3/5 lg:w-2/5 p-4' 
           src='https://via.placeholder.com/1080x1080?text=?'
         />
-        <p className='text-lg sm:text-2xl'>
+        <p className='text-xl'>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           Welcome to my portfolio, I am a fullstack web developer looking to learn as much as I can about
           the web, how it works, and why it works the way it does.  I really 
           enjoy challenging my current way of thinking by solving novel and 
@@ -27,7 +28,7 @@ function App() {
 
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           In addition to this, I am very passionate about learning anything tech
-          related, I just need to know how things works.  I built my first computer 
+          related, I just need to know how things work.  I built my first computer 
           when I was about 12 years old, and ever since then I have been trying to 
           dig further and further in how things work.  I think this is were my 
           passion for things like linux comes into play.  It can be difficult, 
@@ -63,11 +64,20 @@ function App() {
 }
 
 // GET SOME ICONS TO REPLACE SOME OF THE BUTTONS/LINKS
+//
+// WE NEED A WAY TO ADD PAGES WE HAVE POSTED IN PLACES OTHER THAN GIT
+//   - do this by having a hardcoded object with the project name and its actual link
+//    - then just loop over our data from the api and replace the appropiate field
+//   - we actually have to do this in App.tsx because it needs to be served to multiple components
 
 // Consider only fetching from the github api once, then pass it to components that need it
 // Do we want to add client side routing?
 //    - Each project could have a link to its own page
 // Consider adding a header, especially if we end up adding client side routing for each of our projects
 //    - We want people to be able to navigate back to the home-page without hitting the back button
+// Rename FavProjects to RecentProjects
+//    - Consider making a favProjects component for specific project we thinkg are worth showing off
+// Move About section to its own component
+// Do we want to create a types file? Instead of copying certain interfaces to certain components we could just import what we need
 
 export default App;
