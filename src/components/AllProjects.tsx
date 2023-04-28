@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+// import { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 interface repo {
@@ -7,34 +7,26 @@ interface repo {
   html_url: string,
   updated_at: string,
   has_pages: boolean,
+  page_link?: string,
 }
 
 interface stateContainer {
   [key: string]: Array<repo>
 }
 
-function AllProjects() {
-  const [reposV2, setReposeV2] = useState<stateContainer>({})
-
-  useEffect(() => {
-    fetch('https://api.github.com/users/tediferjones/repos?&per_page=100')
-        .then(res => res.json())
-        .then(data => {
-          let languages: stateContainer = {};
-          // const allLanguages = [...new Set<string>(data.map((item: repo) => item.language))];
-          [...new Set<string>(data.map((item: repo) => item.language))].forEach((item: string) => {
-            languages[item] = data.filter((dataItem: repo) => dataItem.language === item)
-          })
-
-          // Merge HTML and CSS into one key/value pair
-          languages['HTML/CSS'] = languages.HTML.concat(languages.CSS);
-          delete languages.HTML;
-          delete languages.CSS;
-
-          setReposeV2(languages);
-        })
-  }, []);
-
+function AllProjects(props: any) {
+  const repos = (props.repos)
+  let languages: stateContainer = {};
+  [...new Set<string>(repos.map((item: repo) => item.language))].forEach((item: string) => {
+    languages[item] = repos.filter((dataItem: repo) => dataItem.language === item)
+  })
+  if (Object.keys(languages).includes('HTML' && 'CSS')) {
+    languages['HTML/CSS'] = languages.HTML.concat(languages.CSS);
+    delete languages.HTML;
+    delete languages.CSS;
+  }
+  const reposV2 = languages;
+  
   function getTotal() {
     // try using reduce instead
     let total = 0;
@@ -78,9 +70,9 @@ function AllProjects() {
                       <a className='flex-1 text-center p-4 flex justify-center items-center bg-blue-400'
                         href={langData.html_url}
                       >View Code</a>
-                      {langData.has_pages === false ? [] :
+                      {!langData.page_link ? [] :
                       <a className='flex-1 text-center p-4 flex justify-center items-center bg-orange-400'
-                        href={`https://tediferjones.github.io/${langData.name}`}
+                        href={langData.page_link}
                       >View Page</a>}
                     </div>
                   </div>
