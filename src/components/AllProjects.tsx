@@ -1,20 +1,8 @@
-// import { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-
-interface repo {
-  name: string,
-  language: string,
-  html_url: string,
-  updated_at: string,
-  has_pages: boolean,
-  page_link?: string,
-}
-
-interface stateContainer {
-  [key: string]: Array<repo>
-}
+import { repo, stateContainer } from '../types';
 
 function AllProjects(props: any) {
+  // This is a cluster, clean it up
   const repos = (props.repos)
   let languages: stateContainer = {};
   [...new Set<string>(repos.map((item: repo) => item.language))].forEach((item: string) => {
@@ -40,10 +28,7 @@ function AllProjects(props: any) {
     document.getElementById(e.target.value)?.classList.toggle('hidden');
   }
 
-  // This should return a series of dropdowns by language
-  //    - For Example: have languages JS, Python, Ruby, have each drop down show its projects
-  // State needs to be some kind of dynamic object
-  // To get the length of all arrays from our object, we need to loop through each of its keys, get array.length and add it some accumalator or something like that
+  // This component should return a series of dropdowns by language
 
   return (
     <div className='bg-gray-100 w-full md:w-3/5 mb-8'>
@@ -54,7 +39,7 @@ function AllProjects(props: any) {
             key={uuidv4()}
           >
             <hr />
-            <button className='text-2xl p-4 px-8 self-start'
+            <button className='text-2xl p-4 px-8 flex'
               onClick={toggleRepoList}
               value={`${item}RepoList`}
             >{item} ({reposV2[item].length})</button>
@@ -65,7 +50,7 @@ function AllProjects(props: any) {
                   <div className='text-xl flex flex-col md:flex-row px-16 py-4' 
                     key={uuidv4()}
                   >
-                    <h1 className='flex-1 flex items-center'>{langData.name}</h1>
+                    <h1 className='flex-1 p-4 flex justify-center items-center'>{langData.name}</h1>
                     <div className='flex-1 flex'>
                       <a className='flex-1 text-center p-4 flex justify-center items-center bg-blue-400'
                         href={langData.html_url}
