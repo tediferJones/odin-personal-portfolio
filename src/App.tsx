@@ -4,12 +4,12 @@ import AboutMe from './components/AboutMe';
 import TechnicalExperience from './components/TechnicalExperience';
 import BackEndProjects from './components/BackEndProjects';
 import FrontEndProjects from './components/FrontEndProjects';
+import CommandLineProjects from './components/CommandLineProjects';
 import AllProjects from './components/AllProjects';
 
 function App() {
   const [repos, setRepos] = useState<Array<repo>>([]);
   const externalPages: externalPageObj = {
-    // this appears to be working, check TOP website for links to all external pages
     'odin-blog-client-service': 'https://odin-blog-client-service-production.up.railway.app',
     'odin-blog-admin-service': 'https://odin-blog-admin-service-production.up.railway.app',
     'odin-blog-api-service': 'https://odin-blog-api-service-production.up.railway.app/api/posts/',
@@ -28,7 +28,6 @@ function App() {
     fetch('https://api.github.com/users/tediferjones/repos?&per_page=100')
         .then(res => res.json())
         .then(data => {
-          // console.log(data)
           const keys = Object.keys(externalPages);
           setRepos(data.map((item: repo) => {
             if (item.has_pages) {
@@ -44,26 +43,29 @@ function App() {
 
   return (
     <div className='flex flex-col items-center w-full'>
-      <h1 className='text-3xl p-8'>HELLO WORLD w/ typescript</h1>
+      <h1 className='text-3xl p-8 w-full font-bold bg-gray-100'>HELLO WORLD w/ typescript</h1>
       <AboutMe />
       <TechnicalExperience />
       <BackEndProjects repos={repos} />
       <FrontEndProjects repos={repos} />
+      <CommandLineProjects repos={repos} />
       <AllProjects repos={repos} />
     </div>
   );
 }
 
 // GET SOME ICONS TO REPLACE SOME OF THE BUTTONS/LINKS
-// ALL LINKS SHOULD OPEN IN A NEW TAB
 
 // Do we want to add client side routing?
 //    - Each project could have a link to its own page
 //    - PROJECTS FROM OUTSIDE OF GITHUB AND GITHUB REPOS THEMSELVES CANT BE IFRAMED, THIS IS A BIG PROBLEM FOR CLIENT SIDE ROUTING
 // Consider adding a header, especially if we end up adding client side routing for each of our projects
 //    - We want people to be able to navigate back to the home-page without hitting the back button
+//    - Make the header a dark neutral color, dark gray, maybe a dark navy blue
 // Consider making new component for FavoriteProjects and/or RecentProjects
 //    - FavoriteProjects should be projects we want to show off
 //    - RecentProjects should show a certain number of the most recently updated github repos
+// Consider breaking up the bigger chunks of JSX into small components
+//    - The view code and view page links would be a good example of this
 
 export default App;

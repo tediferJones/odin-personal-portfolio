@@ -1,23 +1,36 @@
 import { v4 as uuidv4 } from 'uuid';
 import { repo, stateContainer } from '../types';
 
-function AllProjects(props: any) {
-  let languages: stateContainer = {};
-  [...new Set<string>(props.repos.map((item: repo) => item.language))].forEach((item: string) => {
-    languages[item] = props.repos.filter((dataItem: repo) => dataItem.language === item)
-  })
-  if (Object.keys(languages).includes('HTML' && 'CSS')) {
-    languages['HTML/CSS'] = languages.HTML.concat(languages.CSS);
-    delete languages.HTML;
-    delete languages.CSS;
+function CommandLineProjects(props: any) {
+  //   'odin-knights-travails',
+  const commandLineProjectNames: { [key: string]: Array<string> } = {
+    'Algorithms': [
+      'odin-knights-travails',
+      'odin-binary-search-trees',
+      'odin-linked-lists',
+      'odin-recursion',
+      'odin-bubble-sort',
+      'odin-substring',
+      'odin-caesar-cipher',
+      'odin-stock-picker',
+    ],
+    'Command Line Games': [
+      'odin-mastermind',
+      'odin-hangman',
+      'odin-tic-tac-toe',
+    ],
   }
+  let commandLineRepos: stateContainer = {};
+  Object.keys(commandLineProjectNames).forEach((key: string) => {
+    commandLineRepos[key] = props.repos.filter((item: repo) => commandLineProjectNames[key].includes(item.name));
+  })
   
   function getTotal() {
     // try using reduce instead
     let total = 0;
-    Object.keys(languages)
+    Object.keys(commandLineRepos)
         .filter((item: string) => item !== 'null')
-        .forEach((item: string) => total += languages[item].length)
+        .forEach((item: string) => total += commandLineRepos[item].length)
     return total;
   }
 
@@ -28,9 +41,9 @@ function AllProjects(props: any) {
   // This component should return a series of dropdowns by language
 
   return (
-    <div className='bg-gray-100 w-full md:w-3/5 mb-8'>
-      <h1 className='text-3xl p-4'>All Projects ({getTotal()})</h1>
-      {Object.keys(languages).filter((item: string) => item !== 'null').map((item: string) => {
+    <div className='bg-gray-100 w-full md:w-4/5 mb-8'>
+      <h1 className='text-3xl p-4'>Command Line Projects and Algorithms ({getTotal()})</h1>
+      {Object.keys(commandLineRepos).filter((item: string) => item !== 'null').map((item: string) => {
         return (
           <div className='flex flex-col'
             key={uuidv4()}
@@ -39,10 +52,10 @@ function AllProjects(props: any) {
             <button className='text-2xl p-4 px-8 flex'
               onClick={toggleRepoList}
               value={`${item}RepoList`}
-            >{item} ({languages[item].length})</button>
+            >{item} ({commandLineRepos[item].length})</button>
             <div className='hidden'
               id={`${item}RepoList`}
-            >{languages[item].map((langData: repo) => {
+            >{commandLineRepos[item].map((langData: repo) => {
                 return (
                   <div className='text-xl flex flex-col md:flex-row px-16 py-4' 
                     key={uuidv4()}
@@ -72,4 +85,4 @@ function AllProjects(props: any) {
   )
 }
 
-export default AllProjects;
+export default CommandLineProjects;

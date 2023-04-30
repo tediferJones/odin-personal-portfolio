@@ -31,9 +31,13 @@ function FrontEndProjects(props: any) {
               <div className='flex my-4 text-xl font-medium'>
                 <a className='flex-1 text-center p-4 flex justify-center items-center bg-blue-400'
                   href={item.html_url}
+                  target='_blank'
+                  rel='noopener noreferrer'
                 >View Code</a>
                 <a className='flex-1 text-center p-4 flex justify-center items-center bg-orange-400'
                   href={item.page_link}
+                  target='_blank'
+                  rel='noopener noreferrer'
                 >View Page</a>
               </div>
             </div>
