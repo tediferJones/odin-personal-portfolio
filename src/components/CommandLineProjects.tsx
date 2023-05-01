@@ -2,7 +2,6 @@ import { v4 as uuidv4 } from 'uuid';
 import { repo, stateContainer } from '../types';
 
 function CommandLineProjects(props: any) {
-  //   'odin-knights-travails',
   const commandLineProjectNames: { [key: string]: Array<string> } = {
     'Algorithms': [
       'odin-knights-travails',
@@ -38,7 +37,7 @@ function CommandLineProjects(props: any) {
     document.getElementById(e.target.value)?.classList.toggle('hidden');
   }
 
-  // This component should return a series of dropdowns by language
+  // This component should return a series of dropdowns dependent on commandLineProjectNames
 
   return (
     <div className='bg-gray-100 w-full md:w-4/5 mb-8'>

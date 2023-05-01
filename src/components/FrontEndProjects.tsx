@@ -13,7 +13,7 @@ function FrontEndProjects(props: any) {
       .filter((item: repo) => item.has_pages)
       .filter((item: repo) => frontEndProjectNames.includes(item.name))
 
-  // This page should return a series of cards for recent front-end projects
+  // This page should return a series of cards for front-end projects we want to show off
 
   return (
     <div className='w-4/5 p-4'>
