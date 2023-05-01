@@ -32,6 +32,7 @@ function TechnicalExperience() {
             <li className='w-4/5'>Very familiar with HTML and CSS</li>
             <li className='w-4/5'>Solid understanding of git</li>
             <li className='w-4/5'>Knowledge of basic testing practices</li>
+            <li className='w-4/5'>Experience working with APIs</li>
             <li className='w-4/5'>Familiarity with linux</li>
             <li className='w-4/5'>Previous tech support experience (mainly hardware)</li>
           </ul>

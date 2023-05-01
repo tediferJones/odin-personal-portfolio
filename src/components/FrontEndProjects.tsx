@@ -2,9 +2,16 @@ import { v4 as uuidv4 } from 'uuid';
 import { repo } from '../types';
 
 function FrontEndProjects(props: any) {
-  const recentRepos = props.repos.sort((a: repo, b:repo) => {
-    return new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime()
-  }).filter((item: repo) => item.has_pages).slice(0, 4)
+  const frontEndProjectNames = [
+    'instagram-history-finder',
+    'odin-shopping-cart',
+    'odin-memory-card',
+    'odin-cv-application-v2',
+  ]
+  
+  const frontEndRepos = props.repos.sort((a: repo, b:repo) => new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime())
+      .filter((item: repo) => item.has_pages)
+      .filter((item: repo) => frontEndProjectNames.includes(item.name))
 
   // This page should return a series of cards for recent front-end projects
 
@@ -12,7 +19,7 @@ function FrontEndProjects(props: any) {
     <div className='w-4/5 p-4'>
       <h1 className='text-3xl py-4'>Front-end Projects (Hosted with GitHub Pages)</h1>
       <div className='flex flex-wrap'>
-        {recentRepos.map((item: repo) => {
+        {frontEndRepos.map((item: repo) => {
           return (
             <div className='w-full lg:w-1/2 p-4'
               key={uuidv4()}

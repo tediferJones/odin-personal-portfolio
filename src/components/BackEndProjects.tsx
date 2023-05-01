@@ -7,7 +7,6 @@ function BackEndProjects(props: any) {
     'odin-blog-admin-service',
     'odin-blog-client-service',
     'odin-members-only',
-    'odin-mini-message-board',
     'odin-inventory-application',
   ];
   const backEndRepos = props.repos.filter((item: repo) => backEndProjectNames.includes(item.name));

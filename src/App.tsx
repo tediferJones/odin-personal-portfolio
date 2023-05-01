@@ -43,7 +43,9 @@ function App() {
 
   return (
     <div className='flex flex-col items-center w-full'>
-      <h1 className='text-3xl p-8 w-full font-bold bg-gray-100'>HELLO WORLD w/ typescript</h1>
+      <div className='bg-gray-100 w-full mb-8 flex justify-center items-center'>
+        <h1 className='text-3xl p-8 w-4/5 font-bold'>Theo Drzewinski</h1>
+      </div>
       <AboutMe />
       <TechnicalExperience />
       <BackEndProjects repos={repos} />
@@ -54,7 +56,13 @@ function App() {
   );
 }
 
+// Pick the picture you want to stick with, delete the other and put the desired one in the assets folder
+
 // GET SOME ICONS TO REPLACE SOME OF THE BUTTONS/LINKS
+// ADD 'MORE' BUTTON TO FRONT-END PROJECTS
+//    - Everytime the button is pressed, add 4 more projects to the array that ends up being displayed to the user
+//    - All the other components show all of our projects related to that section, this one should do the same
+//    - Otherwise it looks like you've only done 4 react projects
 
 // Do we want to add client side routing?
 //    - Each project could have a link to its own page
