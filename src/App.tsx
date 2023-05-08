@@ -41,7 +41,7 @@ function App() {
 
   return (
     <div className='flex flex-col items-center w-full'>
-      <div className='bg-gray-100 w-full mb-8 flex justify-center items-center'>
+      <div className='bg-sky-600 text-gray-100 w-full mb-8 flex justify-center items-center'>
         <h1 className='text-3xl p-8 w-4/5 font-bold'>Theo Drzewinski</h1>
       </div>
       <AboutMe />

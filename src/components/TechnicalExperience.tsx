@@ -1,7 +1,7 @@
 function TechnicalExperience() {
   return (
-    <div className='p-4 pb-8 bg-gray-100 w-full flex flex-col items-center'>
-      <div className='w-4/5 py-4'>
+    <div className='pb-16 bg-sky-600 text-gray-100 w-full flex flex-col items-center'>
+      <div className='w-4/5 pb-4 pt-16'>
         <h1 className='text-3xl self-start'>Relevant technical experience</h1>
       </div>
 
@@ -45,6 +45,68 @@ function TechnicalExperience() {
             <li className='w-4/5'>A new programming language</li>
           </ul>
         </div>
+      </div>
+      <div className='bg-white w-4/5 p-8 mt-8 grid gap-4 grid-cols-3 justify-items-center sm:grid-cols-3 md:grid-cols-5'>
+        <img className='w-28 h-28' 
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" 
+          alt='Typescript'
+        />
+        <img className='w-28 h-28' 
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" 
+          alt='Javascript'
+        />
+        <img className='w-28 h-28' 
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original-wordmark.svg" 
+          alt='NextJS'
+        />
+        <img className='w-28 h-28' 
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original-wordmark.svg" 
+          alt='React'
+        />
+        <img className='w-28 h-28'
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original-wordmark.svg"
+          alt='Tailwind'
+        />
+        <img className='w-28 h-28'
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original-wordmark.svg"
+          alt='Express'
+        />
+        <img className='w-28 h-28'
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original-wordmark.svg"
+          alt='NodeJS'
+        />
+        <img className='w-28 h-28'
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" 
+          alt='Bash'
+        />
+        <img className='w-28 h-28'
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original-wordmark.svg"
+          alt='MongoDB'
+        />
+        <img className='w-28 h-28' 
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg" 
+          alt='MySQL'
+        />
+        <img className='w-28 h-28' 
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain-wordmark.svg" 
+          alt='HTML'
+        />
+        <img className='w-28 h-28' 
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain-wordmark.svg"
+          alt='CSS'
+        />
+        <img className='w-28 h-28' 
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original-wordmark.svg"
+          alt='Git'
+        />
+        <img className='w-28 h-28'
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ruby/ruby-plain-wordmark.svg"
+          alt='Ruby'
+        />
+        <img className='w-28 h-28'
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original-wordmark.svg"
+          alt='Python'
+        />
       </div>
     </div>
   )

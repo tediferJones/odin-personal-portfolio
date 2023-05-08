@@ -16,8 +16,8 @@ function FrontEndProjects(props: any) {
   // This page should return a series of cards for front-end projects we want to show off
 
   return (
-    <div className='w-4/5 p-4'>
-      <h1 className='text-3xl py-4'>Front-end Projects (Hosted with GitHub Pages)</h1>
+    <div className='w-11/12 p-4'>
+      <h1 className='text-3xl p-4'>Front-end Projects (Hosted with GitHub Pages)</h1>
       <div className='flex flex-wrap'>
         {frontEndRepos.map((item: repo) => {
           return (
@@ -36,12 +36,12 @@ function FrontEndProjects(props: any) {
                 title={item.name}
               ></iframe>
               <div className='flex my-4 text-xl font-medium'>
-                <a className='flex-1 text-center p-4 flex justify-center items-center bg-blue-400'
+                <a className='flex-1 text-center p-4 flex justify-center items-center bg-blue-800 text-gray-100 border-solid border-8 border-white'
                   href={item.html_url}
                   target='_blank'
                   rel='noopener noreferrer'
                 >View Code</a>
-                <a className='flex-1 text-center p-4 flex justify-center items-center bg-orange-400'
+                <a className='flex-1 text-center p-4 flex justify-center items-center bg-teal-500 text-gray-100 border-solid border-8 border-white'
                   href={item.page_link}
                   target='_blank'
                   rel='noopener noreferrer'

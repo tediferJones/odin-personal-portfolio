@@ -13,7 +13,7 @@ function AboutMe() {
         especially interested in back-end systems.  I really enjoy trying to find 
         new ways to solve novel and complex problems, I think that's part of what 
         I find truly fascinating about programming.  And with lots of previous 
-        troubleshooting experience fixing cars, computers, house-hold appliances, 
+        troubleshooting experience fixing cars, computers, household appliances, 
         and much more has provided me with a diverse set of skills and perspectives 
         for looking at systems that are physical, digital, or some combination of the two.
 

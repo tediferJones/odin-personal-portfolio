@@ -40,15 +40,15 @@ function CommandLineProjects(props: any) {
   // This component should return a series of dropdowns dependent on commandLineProjectNames
 
   return (
-    <div className='bg-gray-100 w-full md:w-4/5 mb-8'>
-      <h1 className='text-3xl p-4'>Command Line Projects and Algorithms ({getTotal()})</h1>
+    <div className='bg-sky-600 w-full md:w-4/5 mb-8'>
+      <h1 className='text-3xl text-gray-100 p-4'>Command Line Projects and Algorithms ({getTotal()})</h1>
       {Object.keys(commandLineRepos).filter((item: string) => item !== 'null').map((item: string) => {
         return (
           <div className='flex flex-col'
             key={uuidv4()}
           >
             <hr />
-            <button className='text-2xl p-4 px-8 flex'
+            <button className='text-2xl text-gray-100 p-4 px-8 flex'
               onClick={toggleRepoList}
               value={`${item}RepoList`}
             >{item} ({commandLineRepos[item].length})</button>
@@ -59,15 +59,15 @@ function CommandLineProjects(props: any) {
                   <div className='text-xl flex flex-col md:flex-row px-16 py-4' 
                     key={uuidv4()}
                   >
-                    <h1 className='flex-1 p-4 flex justify-center items-center'>{langData.name}</h1>
+                    <h1 className='flex-1 bg-white p-4 flex justify-center items-center'>{langData.name}</h1>
                     <div className='flex-1 flex'>
-                      <a className='flex-1 text-center p-4 flex justify-center items-center bg-blue-400'
+                      <a className='flex-1 text-center p-4 flex justify-center items-center bg-blue-800 text-gray-100 border-solid border-8 border-white'
                         href={langData.html_url}
                         target='_blank'
                         rel='noopener noreferrer'
                       >View Code</a>
                       {!langData.page_link ? [] :
-                      <a className='flex-1 text-center p-4 flex justify-center items-center bg-orange-400'
+                      <a className='flex-1 text-center p-4 flex justify-center items-center bg-teal-500 text-gray-100 border-solid border-8 border-white'
                         href={langData.page_link}
                         target='_blank'
                         rel='noopener noreferrer'
