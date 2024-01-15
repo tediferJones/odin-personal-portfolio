@@ -12,6 +12,7 @@ function CommandLineProjects(props: any) {
       'odin-substring',
       'odin-caesar-cipher',
       'odin-stock-picker',
+      'advent-of-code-2023',
     ],
     'Command Line Games': [
       'odin-mastermind',
@@ -35,6 +36,14 @@ function CommandLineProjects(props: any) {
 
   function toggleRepoList(e: any) {
     document.getElementById(e.target.value)?.classList.toggle('hidden');
+    const indicatorState = document.getElementById(e.target.value + 'Indicator');
+    if (indicatorState) {
+      if (indicatorState.textContent === '+') {
+        indicatorState.textContent = '-'
+      } else {
+        indicatorState.textContent = '+'
+      }
+    }
   }
 
   // This component should return a series of dropdowns dependent on commandLineProjectNames
@@ -48,10 +57,17 @@ function CommandLineProjects(props: any) {
             key={uuidv4()}
           >
             <hr />
-            <button className='text-2xl text-gray-100 p-4 px-8 flex'
+            <button className='text-2xl text-gray-100 p-4 px-8 flex justify-between'
               onClick={toggleRepoList}
               value={`${item}RepoList`}
-            >{item} ({commandLineRepos[item].length})</button>
+            >
+              <div className='pointer-events-none'>
+                {item} ({commandLineRepos[item].length})
+              </div>
+              <div className='text-3xl font-extrabold pointer-events-none'
+                id={`${item}RepoListIndicator`}
+              >+</div>
+            </button>
             <div className='hidden'
               id={`${item}RepoList`}
             >{commandLineRepos[item].map((langData: repo) => {

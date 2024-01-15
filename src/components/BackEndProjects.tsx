@@ -3,6 +3,7 @@ import { repo } from '../types';
 
 function BackEndProjects(props: any) {
   const backEndProjectNames = [
+    'chat-layers',
     'odin-blog-api-service',
     'odin-blog-admin-service',
     'odin-blog-client-service',
