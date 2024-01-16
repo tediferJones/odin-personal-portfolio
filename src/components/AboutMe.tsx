@@ -1,6 +1,6 @@
 import portrait from '../assets/images/image0.jpeg';
 
-function AboutMe() {
+export default function AboutMe() {
   return (
     <div className='w-4/5 pb-16'>
       <img className='float-left w-full md:w-3/5 lg:w-2/5 p-4' 
@@ -47,5 +47,3 @@ function AboutMe() {
     </div>
   )
 }
-
-export default AboutMe;

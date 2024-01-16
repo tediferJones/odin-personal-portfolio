@@ -1,4 +1,4 @@
-interface repo {
+interface Repo {
   name: string,
   language: string,
   html_url: string,
@@ -7,12 +7,6 @@ interface repo {
   page_link?: string,
 }
 
-interface stateContainer {
-  [key: string]: Array<repo>
+export type {
+  Repo,
 }
-
-interface externalPageObj {
-  [key: string]: string
-}
-
-export type { repo, stateContainer, externalPageObj }

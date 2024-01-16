@@ -1,53 +1,49 @@
 import { useState, useEffect } from 'react';
-import { repo, externalPageObj } from './types';
 import AboutMe from './components/AboutMe';
 import TechnicalExperience from './components/TechnicalExperience';
 import BackEndProjects from './components/BackEndProjects';
 import FrontEndProjects from './components/FrontEndProjects';
 import CommandLineProjects from './components/CommandLineProjects';
 import AllProjects from './components/AllProjects';
+import { externalPages, ignoredRepos } from './contentConfig';
+import { Repo } from './types';
 
-function App() {
-  const [repos, setRepos] = useState<Array<repo>>([]);
+export default function App() {
+  const [repos, setRepos] = useState<Array<Repo>>([]);
 
   // If you delete this then delete the styles from index.css too
   // Consider renaming index.css to styles.css
   // document.body.classList.add('innerScrollbar')
   //
-  // document.body.classList.add('overflow-x-visible')
-  // document.body.classList.add('relative')
-  // document.body.classList.add('overflow-y-hidden')
-  // document.body.classList.add('testScroll')
+  // TRY TO DELETE UUIDV4 FROM REPOLIST
+  // CONSIDER SLICING THE REPOS ARRAY HERE
+  // We want to be able to control the order things are displayed in
+  // The easist way might be to turn the main Repo[], into { [repoName]: Repo }
+  // But this would make the allProjects component much more convoluted
+  // OR we could just use reduce to convert the obj back into an array
+  // We would then have to sort by time, because obj will be sorted alphabetically
+  //
+  // As an extra bonus, if we can do the repo slicing in this component, 
+  // then we can handle all import from contentConfig here too
+  //
+  // Fix RepoList spacing at bottom of DropDown components
 
-  // Move ignored repos list here from AllProjects component
-  // This way it is removed entirely from the repos object (which all components get their data from)
   useEffect(() => {
     fetch('https://api.github.com/users/tediferjones/repos?&per_page=100')
-      .then(res => res.json())
-      .then(data => {
-        const externalPages: externalPageObj = {
-          'odin-blog-client-service':      'https://odin-blog-client-service-production.up.railway.app',
-          'odin-blog-admin-service':       'https://odin-blog-admin-service-production.up.railway.app',
-          'odin-blog-api-service':         'https://odin-blog-api-service-production.up.railway.app/api/posts/',
-          'odin-members-only':             'https://odin-members-only-production.up.railway.app',
-          'odin-inventory-application':    'https://odin-inventory-application-prod-production.up.railway.app',
-          'chat-layers':                   'https://chat-layers-production.up.railway.app/',
-
-          'odin-hangman':                  'https://replit.com/@ted_jones671/odin-hangman#hangman.rb',
-          'odin-mastermind':               'https://replit.com/@ted_jones671/odin-mastermind#mastermind.rb',
-          'odin-tic-tac-toe':              'https://replit.com/@ted_jones671/odin-tic-tac-toe#tic_tac_toe.rb',
-          'odin-basic-informational-site': 'https://replit.com/@ted_jones671/odin-basic-informational-site',
-        }
+      .then((res: Response) => res.json())
+      .then((data: Repo[]) => {
         const keys = Object.keys(externalPages);
-        setRepos(data.map((item: repo) => {
-          if (item.has_pages) {
-            item.page_link = `https://tediferjones.github.io/${item.name}`
-          }
-          if (keys.includes(item.name)) {
-            item.page_link = externalPages[item.name]; 
-          }
-          return item
-        }));
+        setRepos(
+          data.filter(repo => repo.language && !ignoredRepos.includes(repo.name))
+            .map((repo: Repo) => {
+              const { name, has_pages } = repo;
+              if (has_pages || keys.includes(name)) {
+                repo.page_link = has_pages ? `https://tediferjones.github.io/${repo.name}`
+                  : externalPages[repo.name]; 
+              }
+              return repo
+            }).sort((a, b) => new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime())
+        );
       })
   }, [])
 
@@ -65,5 +61,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
