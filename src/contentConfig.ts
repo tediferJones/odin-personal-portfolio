@@ -69,8 +69,7 @@ const techExp: { [key: string]: string[] }[] = [{
       'Experience working with APIs',
       'Experience with SQL and NoSQL databases',
       'Familiarity with Linux',
-      'Previous tech support experience (mainly hardware)',
-
+      'Previous tech support experience',
     ],
     'Interested in learning': [
       'SolidJS framework',
@@ -81,8 +80,8 @@ const techExp: { [key: string]: string[] }[] = [{
 ];
 
 const devicons: { [key: string]: string } = {
-  'Typescript': "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" ,
-  'Javascript': "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" ,
+  'TypeScript': "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" ,
+  'JavaScript': "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" ,
   'NextJS':     "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original-wordmark.svg" ,
   'React':      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original-wordmark.svg" ,
   'Tailwind':   "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original-wordmark.svg",

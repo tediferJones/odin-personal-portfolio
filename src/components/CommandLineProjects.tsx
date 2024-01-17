@@ -12,7 +12,7 @@ export default function CommandLineProjects({ repos }: { repos: Repo[]}) {
     .reduce((total, key) => total += commandLineRepos[key].length, 0)
 
   return (
-    <div className='bg-sky-600 w-full md:w-4/5 mb-12'>
+    <div id='CliProjects' className='bg-sky-600 w-full md:w-4/5 mb-12'>
       <h1 className='text-3xl text-gray-100 p-4'>Command Line Projects and Algorithms ({total})</h1>
       {Object.keys(commandLineRepos).map((item: string) => {
         return <DropDown key={item} repoArr={commandLineRepos[item]} title={item} />

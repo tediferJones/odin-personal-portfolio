@@ -3,12 +3,12 @@ import BulletList from './subcomponents/BulletList';
 
 export default function TechnicalExperience() {
   return (
-    <div className='pb-16 bg-sky-600 text-gray-100 w-full flex flex-col items-center'>
-      <div className='w-4/5 pb-4 pt-16'>
+    <div id='TechnicalExperience' className='py-12 bg-sky-600 text-gray-100 w-full flex flex-col items-center'>
+      <div className='w-4/5 pb-4'>
         <h1 className='text-3xl self-start'>Relevant technical experience</h1>
       </div>
 
-      <div className='w-4/5 flex flex-wrap text-lg'>
+      <div className='w-4/5 flex flex-wrap text-xl'>
         {techExp.map((col, i) => <div key={`columnNumber${i}`} className='flex flex-col justify-evenly flex-1'>
           {Object.keys(col).map(heading => <BulletList key={heading} heading={heading} points={col[heading]} />)}
         </div>)}

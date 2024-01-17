@@ -7,6 +7,19 @@ interface Repo {
   page_link?: string,
 }
 
+interface MenuItem {
+  href: string,
+  content: string,
+  icon?: string,
+}
+
+interface MenuState {
+  display: boolean,
+  title: string,
+}
+
 export type {
   Repo,
+  MenuItem,
+  MenuState,
 }
