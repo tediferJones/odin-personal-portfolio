@@ -1,28 +1,22 @@
-import { useRef } from 'react';
+import { useState } from 'react';
 import RepoList from './RepoList';
 import { Repo } from '../../types';
 
 export default function DropDown({ repoArr, title }: { repoArr: Repo[], title: string }) {
-  const indicator = useRef<HTMLDivElement>(null);
-  const toggle = useRef<HTMLDivElement>(null);
+  const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className={'flex flex-col'}>
+    <div className={'' + (isOpen ? ' bg-sky-700' : '')}>
       <hr />
-      <button className='text-2xl text-gray-100 p-4 px-8 flex justify-between'
+      <button className={'w-full text-2xl text-gray-100 p-4 px-8 flex justify-between'}
         value={`${title}RepoList`}
-        onClick={() => {
-          toggle.current && toggle.current.classList.toggle('hidden')
-          if (indicator.current) {
-            indicator.current.textContent = indicator.current.textContent === '+' ? '-' : '+'
-          }
-        }}
+        onClick={() => setIsOpen(old => !old)}
       >
         <div className='pointer-events-none'>{title} ({repoArr.length})</div>
-        <div className='text-3xl font-extrabold pointer-events-none'
-          ref={indicator}
-        >+</div>
+        <i className={'fa-solid fa-chevron-left flex justify-center items-center text-3xl pointer-events-none transition-all duration-500' + 
+          (isOpen ? ' -rotate-90' : ' rotate-0')
+        }></i>
       </button>
-      <div className='hidden' ref={toggle}>
+      <div className={isOpen ? 'pb-1' : 'hidden'}>
         <RepoList repos={repoArr} />
       </div>
     </div>

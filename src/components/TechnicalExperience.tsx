@@ -14,7 +14,7 @@ export default function TechnicalExperience() {
         </div>)}
       </div>
 
-      <div className='bg-white w-4/5 p-8 mt-8 grid gap-4 grid-cols-3 justify-items-center sm:grid-cols-3 md:grid-cols-5'>
+      <div className='bg-white w-4/5 p-8 mt-8 grid gap-4 grid-cols-3 justify-items-center sm:grid-cols-3 md:grid-cols-5 rounded-xl'>
         {Object.keys(devicons).map(langName => {
           return <img className='w-28 h-28' 
             key={langName}

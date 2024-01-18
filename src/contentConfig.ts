@@ -1,3 +1,5 @@
+import { MenuItem } from "./types";
+
 const externalPages: { [key: string]: string } = {
   'odin-blog-client-service':      'https://odin-blog-client-service-production.up.railway.app',
   'odin-blog-admin-service':       'https://odin-blog-admin-service-production.up.railway.app',
@@ -51,16 +53,24 @@ const cliRepos: { [key: string]: string[] } = {
 
 const techExp: { [key: string]: string[] }[] = [{
   'Primary Language: TypeScript': [],
-  "Languages I've Experimented with:": [
+  // "Languages I've Experimented with:": [
+  'Less experienced languages': [
     'Python',
     'Bash',
     'Ruby',
   ],
-  'Frameworks/Libraries': [
-    'React & NextJS',
-    'ExpressJS',
-    "NodeJS (technically, it's a runtime)",
-    'Tailwind CSS',
+  // 'Frameworks/Libraries': [
+  //   'React & NextJS',
+  //   'ExpressJS',
+  //   "NodeJS (technically, it's a runtime)",
+  //   'Tailwind CSS',
+  // ]
+  'My Stack': [
+    'Runtime: Bun',
+    'Database: Turso (SQLite)',
+    'Back-End: NextJS',
+    'Front-End: React',
+    'Styling: Tailwind',
   ]
 }, {
     'Other Technologies & Skills:': [
@@ -85,17 +95,35 @@ const devicons: { [key: string]: string } = {
   'NextJS':     "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original-wordmark.svg" ,
   'React':      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original-wordmark.svg" ,
   'Tailwind':   "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original-wordmark.svg",
-  'Express':    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original-wordmark.svg",
+  // 'Express':    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original-wordmark.svg",
+  'Bun':        "https://api.iconify.design/devicon/bun.svg",
   'NodeJS':     "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original-wordmark.svg",
   'Bash':       "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" ,
   'MongoDB':    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original-wordmark.svg",
-  'MySQL':      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg" ,
+  // 'MySQL':      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg" ,
+  'SQLite':     "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg",
   'HTML':       "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain-wordmark.svg" ,
   'CSS':        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain-wordmark.svg",
   'Git':        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original-wordmark.svg",
   'Ruby':       "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ruby/ruby-plain-wordmark.svg",
   'Python':     "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original-wordmark.svg",
 }
+
+const contactMenu: MenuItem[] = [
+  { href: require('./assets/documents/resume.pdf'), content: 'Resume', icon: 'fa-solid fa-file-invoice', isLink: true },
+  { href: 'https://github.com/tediferJones', content: 'GitHub', icon: 'fa-brands fa-github', isLink: true },
+  { href: 'mailto:theo_drz@live.com', content: 'Email', icon: 'fa-solid fa-envelope-open-text', isLink: true, },
+  { href: 'tel:+14128891992', content: 'Phone', icon: 'fa-solid fa-phone-volume', isLink: true },
+];
+
+const subsectionMenu: MenuItem[] = [
+  { href: '#AboutMe', content: 'About Me' },
+  { href: '#TechnicalExperience', content: 'Technical Experience' },
+  { href: '#BackEndProjects', content: 'Back-End Projects' },
+  { href: '#FrontEndProjects', content: 'Front-End Projects' },
+  { href: '#CliProjects', content: 'CLI Projects' },
+  { href: '#AllProjects', content: 'All Projects' },
+];
 
 export {
   externalPages,
@@ -105,4 +133,6 @@ export {
   cliRepos,
   techExp,
   devicons,
+  contactMenu,
+  subsectionMenu,
 }

@@ -11,6 +11,7 @@ interface MenuItem {
   href: string,
   content: string,
   icon?: string,
+  isLink?: boolean,
 }
 
 interface MenuState {
