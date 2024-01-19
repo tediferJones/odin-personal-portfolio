@@ -16,40 +16,34 @@ const externalPages: { [key: string]: string } = {
 
 const ignoredRepos = [ 'nextjs-approuter-shadcn' ];
 
-const backEndProjectNames = [
-  'chat-layers',
-  'odin-blog-api-service',
-  'odin-blog-admin-service',
-  'odin-blog-client-service',
-  'odin-members-only',
-  'odin-inventory-application',
-];
+const bio = [
+    `Welcome to my portfolio, I am a junior full stack web developer who is 
+  especially interested in back-end systems.  I really enjoy trying to find 
+  new ways to solve novel and complex problems, I think that's part of what 
+  I find truly fascinating about programming.  And with lots of previous 
+  troubleshooting experience fixing cars, computers, household appliances, 
+  and much more has provided me with a diverse set of skills and perspectives 
+  for looking at systems that are physical, digital, or some combination of the two.`,
 
-const frontEndProjectNames = [
-  'html-to-pdf',
-  'instagram-history-finder',
-  'odin-shopping-cart',
-  'odin-memory-card',
-];
+    `In addition to this, I am very passionate about learning anything tech
+  related, I just need to know how things work.  I built my first computer 
+  when I was about 12 years old, and ever since then I have been trying to 
+  dig further and further into how computers work.  I think that's a big part
+  of why I push myself to use things like linux, that force you to dive deeper 
+  and gain a higher level of understanding about how the software you are using 
+  actually works.  It can be difficult, frustrating, and sometimes even down 
+  right demeaning. But, if you stick with it, by the time you have solved whatever 
+  problem you're having, you will have undoubtedly learned something.  Even if 
+  it's something as simple as having a better understanding of how syntax 
+  plugins are loaded into VIM.`,
 
-const cliRepos: { [key: string]: string[] } = {
-  'Algorithms': [
-    'odin-knights-travails',
-    'odin-binary-search-trees',
-    'odin-linked-lists',
-    'odin-recursion',
-    'odin-bubble-sort',
-    'odin-substring',
-    'odin-caesar-cipher',
-    'odin-stock-picker',
-    'advent-of-code-2023',
-  ],
-  'Command Line Games': [
-    'odin-mastermind',
-    'odin-hangman',
-    'odin-tic-tac-toe',
-  ],
-}
+    `At its core, I think I just love solving problems.  There is something so 
+  empowering about breaking down complex problems into understandable pieces 
+  and then figuring out how these pieces relate to each other and work together.  
+  And with that information, determining what is needed, what is nice to have, and the 
+  implications that changes could have on other systems.  It's a mental workout and 
+  I love it.`,
+];
 
 const techExp: { [key: string]: string[] }[] = [{
   'Primary Language: TypeScript': [],
@@ -109,6 +103,41 @@ const devicons: { [key: string]: string } = {
   'Python':     "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original-wordmark.svg",
 }
 
+const frontEndProjectNames = [
+  'html-to-pdf',
+  'instagram-history-finder',
+  'odin-shopping-cart',
+  'odin-memory-card',
+];
+
+const backEndProjectNames = [
+  'chat-layers',
+  'odin-blog-api-service',
+  'odin-blog-admin-service',
+  'odin-blog-client-service',
+  'odin-members-only',
+  'odin-inventory-application',
+];
+
+const cliRepos: { [key: string]: string[] } = {
+  'Algorithms': [
+    'odin-knights-travails',
+    'odin-binary-search-trees',
+    'odin-linked-lists',
+    'odin-recursion',
+    'odin-bubble-sort',
+    'odin-substring',
+    'odin-caesar-cipher',
+    'odin-stock-picker',
+    'advent-of-code-2023',
+  ],
+  'Command Line Games': [
+    'odin-mastermind',
+    'odin-hangman',
+    'odin-tic-tac-toe',
+  ],
+}
+
 const contactMenu: MenuItem[] = [
   { href: require('./assets/documents/resume.pdf'), content: 'Resume', icon: 'fa-solid fa-file-invoice', isLink: true },
   { href: 'https://github.com/tediferJones', content: 'GitHub', icon: 'fa-brands fa-github', isLink: true },
@@ -119,8 +148,9 @@ const contactMenu: MenuItem[] = [
 const subsectionMenu: MenuItem[] = [
   { href: '#AboutMe', content: 'About Me' },
   { href: '#TechnicalExperience', content: 'Technical Experience' },
-  { href: '#BackEndProjects', content: 'Back-End Projects' },
+  { href: '#RecentProjects', content: 'Recent Projects' },
   { href: '#FrontEndProjects', content: 'Front-End Projects' },
+  { href: '#BackEndProjects', content: 'Back-End Projects' },
   { href: '#CliProjects', content: 'CLI Projects' },
   { href: '#AllProjects', content: 'All Projects' },
 ];
@@ -128,11 +158,12 @@ const subsectionMenu: MenuItem[] = [
 export {
   externalPages,
   ignoredRepos,
-  backEndProjectNames,
-  frontEndProjectNames,
-  cliRepos,
+  bio,
   techExp,
   devicons,
+  frontEndProjectNames,
+  backEndProjectNames,
+  cliRepos,
   contactMenu,
   subsectionMenu,
 }
