@@ -25,6 +25,9 @@ export default function App() {
     fetch('https://api.github.com/users/tediferjones/repos?&per_page=100')
       .then((res: Response) => res.json())
       .then((data: Repo[]) => {
+        if (data.length === undefined) {
+          throw Error('failed to get info from github')
+        }
         const keys = Object.keys(externalPages);
         setRepos(
           data.filter(repo => repo.language && !ignoredRepos.includes(repo.name))
@@ -41,7 +44,7 @@ export default function App() {
   }, [])
 
   return (
-    <div className='flex flex-col items-center w-full'>
+    <div className='w-full flex flex-col items-center'>
       <Header />
       <AboutMe />
       <TechnicalExperience />

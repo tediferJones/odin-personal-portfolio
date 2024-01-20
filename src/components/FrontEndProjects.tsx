@@ -15,22 +15,29 @@ export default function FrontEndProjects({ repos }: { repos: Repo[] }) {
                 <h3 className='text-2xl'>{repo.name}</h3>
                 <div className='flex gap-2'>
                   {langNames.map(lang => {
-                    // return <button key={`${repo.name}-${lang}`} onClick={() => {
-                    //   console.log(lang)
-                    //   document.querySelector(`#${lang}`)?.dispatchEvent(new Event('click'))
-                    //   window.location.href = '#AllProjects'
-                    // }}>
-                    //   <img className='h-12' 
-                    //     key={`FrontEnd-${repo.name}-${lang}`}
-                    //     src={devicons[lang]}
-                    //     alt={lang}
-                    //   />
-                    // </button>
-                    return <img className='h-12' 
-                      key={`FrontEnd-${repo.name}-${lang}`}
-                      src={devicons[lang]}
-                      alt={lang}
-                    />
+                    return <button key={`${repo.name}-${lang}`} onClick={() => {
+                      const langId = ['HTML', 'CSS'].includes(lang) ? 'HTML-CSS' : lang
+                      const element = document.querySelector(`#${langId}`);
+                      if (element) {
+                        ['mousedown', 'click', 'mouseup'].forEach(event => {
+                          element.dispatchEvent(new MouseEvent(event, {
+                            view: window,
+                            bubbles: true,
+                            cancelable: true,
+                            buttons: 1
+                          }))
+                        })
+                      }
+                      setTimeout(() => {
+                        window.location.href = `#${langId}`
+                      }, 75)
+                    }}>
+                      <img className='h-12' 
+                        key={`FrontEnd-${repo.name}-${lang}`}
+                        src={devicons[lang]}
+                        alt={lang}
+                      />
+                    </button>
                   })}
                 </div>
               </div>

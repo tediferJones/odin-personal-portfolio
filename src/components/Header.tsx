@@ -6,7 +6,7 @@ import { contactMenu, subsectionMenu } from '../contentConfig';
 export default function Header() {
   const [showMenu, setShowMenu] = useState<MenuState>({ display: false, title: '' });
   return (
-    <div className='bg-sky-600 text-gray-100 w-full flex justify-center'>
+    <div className='bg-sky-600 text-gray-100 w-full flex justify-center sticky top-0 z-10'>
       <div className='w-full sm:w-4/5 flex justify-between items-center'>
         <h1 className='text-3xl p-8 font-bold'>Theo Drzewinski</h1>
         <div className='text-xl flex gap-1 flex-col sm:flex-row sm:gap-6'>
