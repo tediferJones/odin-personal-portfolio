@@ -9,9 +9,9 @@ interface Repo {
 
 interface MenuItem {
   href: string,
-  content: string,
   icon?: string,
-  isLink?: boolean,
+  newTab?: boolean,
+  name?: string,
 }
 
 interface MenuState {

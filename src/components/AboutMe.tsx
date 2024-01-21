@@ -1,5 +1,7 @@
 import {/* Fragment,*/ useEffect, useState } from 'react';
 import portrait from '../assets/images/image0.jpeg';
+import getLinkInfo from '../modules/getLinkInfo';
+import LinkTo from './subcomponents/LinkTo';
 // import { bio } from '../contentConfig';
 
 export default function AboutMe() {
@@ -12,21 +14,22 @@ export default function AboutMe() {
   // </div>
   // <div className='bg-red-500 w-2/5 my-12'></div>
   return (
-      <div id='AboutMe' className='w-full flex justify-center gap-8 flex-col lg:flex-row overflow-hidden'>
-        <img className={`my-12 w-2/5 rounded-xl relative transition-all duration-1000 ${state ? 'right-[999px]' : 'right-[0px]'}`}
-          src={portrait}
-          alt='Portrait'
-        />
-        <div className='w-2/5 my-12 flex flex-col justify-between gap-8'>
-          <h1 className={`bg-sky-600 rounded-xl p-8 text-white text-center text-3xl relative transition-all duration-1000 ${state ? 'bottom-[999px]' : 'bottom-[0px]'}`}>Welcome to my portfolio!</h1>
-          <p className={`bg-sky-600 rounded-xl p-8 text-white text-2xl text-center relative transition-all duration-1000 ${state ? 'left-[999px]' : 'left-[0px]'}`}>
-            I am a full stack web developer who really enjoys trying to find 
-            new ways to solve novel and complex problems
-            <br />
-            <br />
-            My goal is to learn as much as I can about how the web works
-          </p>
-          <div className={`flex gap-8 relative transition-all duration-1000 ${state ? 'top-[999px]' : 'top-[0px]'}`}>
+    <div id='AboutMe' className='w-full flex justify-center gap-8 flex-col lg:flex-row overflow-hidden scroll-m-0'>
+      <img className={`my-12 w-2/5 rounded-xl relative transition-all duration-1000 ${state ? 'right-[999px]' : 'right-[0px]'}`}
+        src={portrait}
+        alt='Portrait'
+      />
+      <div className='w-2/5 my-12 flex flex-col justify-between gap-8'>
+        <h1 className={`bg-sky-600 rounded-xl p-8 text-white text-center text-3xl relative transition-all duration-1000 ${state ? 'bottom-[999px]' : 'bottom-[0px]'}`}>Welcome to my portfolio!</h1>
+        <p className={`bg-sky-600 rounded-xl p-8 text-white text-2xl text-center relative transition-all duration-1000 ${state ? 'left-[999px]' : 'left-[0px]'}`}>
+          I am a full stack web developer who really enjoys trying to find 
+          new ways to solve novel and complex problems
+          <br />
+          <br />
+          My goal is to learn as much as I can about how the web works
+        </p>
+        <div className={`flex gap-8 relative transition-all duration-1000 ${state ? 'top-[999px]' : 'top-[0px]'}`}>
+          {/*
             <a className='flex-1 p-8 text-xl text-white flex gap-2 items-center justify-center bg-sky-600 hover:bg-sky-800 rounded-xl'
               href='mailto:theo_drz@live.com'
               target='_blank'
@@ -43,9 +46,17 @@ export default function AboutMe() {
               <i className='fa-solid fa-phone-volume'></i>
               Phone
             </a>
-          </div>
+            */}
+          {['Email', 'Phone'].map(key => {
+            return (
+              <LinkTo key={`AboutMe-${key}`} className='flex-1 p-8 text-xl text-white flex gap-2 items-center justify-center bg-sky-600 hover:bg-sky-800 rounded-xl'
+                content={getLinkInfo(key)}
+              />
+            )
+          })}
         </div>
       </div>
+    </div>
   )
 
   // return (

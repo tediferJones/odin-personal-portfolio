@@ -4,7 +4,7 @@ import { frontEndProjectNames, devicons } from '../contentConfig';
 
 export default function FrontEndProjects({ repos }: { repos: Repo[] }) {
   return (
-    <div id='FrontEndProjects' className='mb-12 bg-sky-600 p-12 w-full'>
+    <div id='FrontEndProjects' className='mb-12 bg-sky-600 p-12 w-full scroll-m-16'>
       <h1 className='pb-8 text-3xl text-white'>Front-End Projects (Hosted with GitHub Pages)</h1>
       <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
         {repos.filter(repo => frontEndProjectNames.includes(repo.name)).map((repo: Repo) => {

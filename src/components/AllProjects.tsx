@@ -12,7 +12,7 @@ export default function AllProjects({ repos }: { repos: Repo[] }) {
     .reduce((total, key) => total += languages[key].length, 0);
 
   return (
-    <div id='AllProjects' className='bg-sky-600 w-full md:w-3/5 mb-12 md:rounded-xl overflow-hidden'>
+    <div id='AllProjects' className='bg-sky-600 w-full md:w-3/5 mb-12 md:rounded-xl overflow-hidden scroll-m-16'>
       <h1 className='text-3xl text-gray-100 p-4'>All Projects ({total})</h1>
       {Object.keys(languages).map((languageKey: string) => {
         return <DropDown key={languageKey} repoArr={languages[languageKey]} title={languageKey} />

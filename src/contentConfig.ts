@@ -147,22 +147,38 @@ const cliRepos: { [key: string]: string[] } = {
   ],
 }
 
-const contactMenu: MenuItem[] = [
-  { href: require('./assets/documents/resume.pdf'), content: 'Resume', icon: 'fa-solid fa-file-invoice', isLink: true },
-  { href: 'https://github.com/tediferJones', content: 'GitHub', icon: 'fa-brands fa-github', isLink: true },
-  { href: 'mailto:theo_drz@live.com', content: 'Email', icon: 'fa-solid fa-envelope-open-text', isLink: true, },
-  { href: 'tel:+14128891992', content: 'Phone', icon: 'fa-solid fa-phone-volume', isLink: true },
-];
+// const contactMenu: MenuItem[] = [
+//   { href: require('./assets/documents/resume.pdf'), content: 'Resume', icon: 'fa-solid fa-file-invoice', isLink: true },
+//   { href: 'https://github.com/tediferJones', content: 'GitHub', icon: 'fa-brands fa-github', isLink: true },
+//   { href: 'mailto:theo_drz@live.com', content: 'Email', icon: 'fa-solid fa-envelope-open-text', isLink: true, },
+//   { href: 'tel:+14128891992', content: 'Phone', icon: 'fa-solid fa-phone-volume', isLink: true },
+// ];
+// 
+// const subsectionMenu: MenuItem[] = [
+//   { href: '#AboutMe', content: 'About Me' },
+//   { href: '#TechnicalExperience', content: 'Technical Experience' },
+//   { href: '#RecentProjects', content: 'Recent Projects' },
+//   { href: '#FrontEndProjects', content: 'Front-End Projects' },
+//   { href: '#BackEndProjects', content: 'Back-End Projects' },
+//   { href: '#CliProjects', content: 'CLI Projects' },
+//   { href: '#AllProjects', content: 'All Projects' },
+// ];
 
-const subsectionMenu: MenuItem[] = [
-  { href: '#AboutMe', content: 'About Me' },
-  { href: '#TechnicalExperience', content: 'Technical Experience' },
-  { href: '#RecentProjects', content: 'Recent Projects' },
-  { href: '#FrontEndProjects', content: 'Front-End Projects' },
-  { href: '#BackEndProjects', content: 'Back-End Projects' },
-  { href: '#CliProjects', content: 'CLI Projects' },
-  { href: '#AllProjects', content: 'All Projects' },
-];
+const linkOptions: { [key: string]: MenuItem } = {
+  'Resume': { href: require('./assets/documents/resume.pdf'), icon: 'fa-solid fa-file-invoice', newTab: true },
+  'GitHub': { href: 'https://github.com/tediferJones', icon: 'fa-brands fa-github', newTab: true },
+  'Email': { href: 'mailto:theo_drz@live.com', icon: 'fa-solid fa-envelope-open-text', newTab: true, },
+  'Phone': { href: 'tel:+14128891992', icon: 'fa-solid fa-phone-volume', newTab: true },
+
+  'About Me':             { href: '#AboutMe' },
+  'Technical Experience': { href: '#TechnicalExperience' },
+  'Recent Projects':      { href: '#RecentProjects' },
+  'Front-End Projects':   { href: '#FrontEndProjects' },
+  'Back-End Projects':    { href: '#BackEndProjects' },
+  'CLI Projects':         { href: '#CliProjects' },
+  'All Projects':         { href: '#AllProjects' },
+};
+
 
 export {
   externalPages,
@@ -173,6 +189,7 @@ export {
   frontEndProjectNames,
   backEndProjectNames,
   cliRepos,
-  contactMenu,
-  subsectionMenu,
+  // contactMenu,
+  // subsectionMenu,
+  linkOptions,
 }

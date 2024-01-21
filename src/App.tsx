@@ -19,7 +19,7 @@ export default function App() {
   // OR we could just use reduce to convert the obj back into an array
   // We would then have to sort by time, because obj will be sorted alphabetically
   //
-  // Consider making an 'AnchorTag' subcomponent
+  // See if get auto scroll to account for sticky header
 
   useEffect(() => {
     fetch('https://api.github.com/users/tediferjones/repos?&per_page=100')
