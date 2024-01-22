@@ -18,7 +18,7 @@ export default function Menu({
     <div className='flex items-center flex-col justify-center relative'
       onMouseLeave={() => setShowMenu({ display: false, title: '' })}
     >
-      <button className={'flex gap-2 items-center hover:bg-sky-700 p-2 rounded-xl mr-4 sm:mr-0' + 
+      <button className={'flex gap-2 items-center hover:bg-sky-700 p-4 rounded-xl mr-4 sm:mr-0 transition-colors duration-300' + 
         (showMenu.display && showMenu.title === title ? ' bg-sky-700' : '')
       }
         onClick={() => {
@@ -35,34 +35,20 @@ export default function Menu({
       </button>
       {!showMenu.display || showMenu.title !== title ? [] : 
         <>
-          <div className='h-8 w-8 bg-sky-700 absolute top-10 rotate-45'></div>
-          <div className='bg-sky-700 absolute top-12 px-4 py-2 rounded-xl z-50 right-1 sm:right-auto'>
+          <div className='h-8 w-8 bg-sky-700 absolute top-14 rotate-45'></div>
+          <div className='bg-sky-700 absolute top-16 px-4 py-2 rounded-xl z-50 right-1 sm:right-auto'>
             {content.map((key, i) => {
               return (
                 <div key={`${title}-${key.name}`} className={(key.name && ['Resume', 'GitHub'].includes(key.name) ? 'lg:hidden' : '')}>
                   <LinkTo 
                     content={key}
-                    className='my-1 p-2 whitespace-nowrap flex justify-center items-center gap-4 hover:bg-sky-800 rounded-xl' 
+                    className='my-1 p-2 whitespace-nowrap flex justify-center items-center gap-4 hover:bg-sky-800 rounded-xl transition-colors duration-300' 
                     textClassName='flex-1 flex justify-center'
                   />
                   {i < content.length - 1 ? <hr /> : []}
                 </div>
               )
             })}
-            {/*
-            {options.map(({ href, content, icon, isLink }, i) => {
-              return <div key={`${title}-${href}`} className={(['Resume', 'GitHub'].includes(content) ? 'lg:hidden' : '')}>
-                <a className='my-1 p-2 whitespace-nowrap flex justify-center items-center gap-4 hover:bg-sky-800 rounded-xl'
-                  {...(isLink ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                  href={href}
-                >
-                  {icon ? <i className={icon}></i> : []}
-                  <p className='flex-1 flex justify-center'>{content}</p>
-                </a>
-                {i < options.length - 1 ? <hr /> : []}
-              </div>
-            })}
-            */}
           </div>
         </>
       }

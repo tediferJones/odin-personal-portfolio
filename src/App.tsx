@@ -11,7 +11,7 @@ import { externalPages, ignoredRepos } from './contentConfig';
 import { Repo } from './types';
 
 export default function App() {
-  const [repos, setRepos] = useState<Array<Repo>>([]);
+  const [repos, setRepos] = useState<Repo[]>([]);
 
   // Do we want to have control over the order repos are displayed in?
   // The easist way might be to turn the main Repo[], into { [repoName]: Repo }
@@ -19,9 +19,10 @@ export default function App() {
   // OR we could just use reduce to convert the obj back into an array
   // We would then have to sort by time, because obj will be sorted alphabetically
   //
-  // See if get auto scroll to account for sticky header
+  // Consider moving string arrays in Header component to contentConfig.ts
 
   useEffect(() => {
+    // return setRepos([]);
     fetch('https://api.github.com/users/tediferjones/repos?&per_page=100')
       .then((res: Response) => res.json())
       .then((data: Repo[]) => {
@@ -41,6 +42,8 @@ export default function App() {
             }).sort((a, b) => new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime())
         );
       })
+    // setTimeout(() => window.scrollTo(0, 0), 200)
+    // window.location.href = '#AboutMe'
   }, [])
 
   return (

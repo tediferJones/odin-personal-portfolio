@@ -3,7 +3,7 @@ import BulletList from './subcomponents/BulletList';
 
 export default function TechnicalExperience() {
   return (
-    <div id='TechnicalExperience' className='py-12 bg-sky-600 text-gray-100 w-full flex flex-col items-center scroll-m-16'>
+    <div id='TechnicalExperience' className='py-12 bg-sky-600 text-gray-100 w-full flex flex-col items-center scroll-mt-32'>
       <div className='w-4/5 pb-4'>
         <h1 className='text-3xl self-start'>Relevant technical experience</h1>
       </div>
