@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
-import portrait from '../assets/images/portrait.jpg';
-import getLinkInfo from '../modules/getLinkInfo';
+import { Fragment, useEffect, useState } from 'react';
 import LinkTo from './subcomponents/LinkTo';
+import getLinkInfo from '../modules/getLinkInfo';
+import { portrait, bio } from '../contentConfig';
 
 export default function AboutMe() {
   const [state, setState] = useState(true);
@@ -10,7 +10,7 @@ export default function AboutMe() {
   }, [])
 
   return (
-    <div id='AboutMe' className='overflow-clip w-full flex justify-center items-center gap-8 flex-col-reverse lg:flex-row rounded-xl scroll-m-32'>
+    <div id='AboutMe' className='overflow-clip w-full flex justify-center items-center gap-8 flex-col-reverse lg:flex-row rounded-xl scroll-mt-48 md:scroll-mt-32'>
       <img className={`-z-10 lg:w-2/5 w-4/5 mb-12 lg:my-12 rounded-xl relative transition-all duration-1000 lg:top-0 ${state ? 'top-[999px] lg:right-[999px]' : 'top-[0px] lg:right-[0px]'}`}
         src={portrait}
         alt='Portrait'
@@ -18,11 +18,14 @@ export default function AboutMe() {
       <div className='lg:w-2/5 w-4/5 pt-12 lg:py-12 flex flex-col justify-between gap-8'>
         <h1 className={`bg-sky-600 rounded-xl p-8 text-white text-center text-3xl relative transition-all duration-1000 ${state ? 'bottom-[999px]' : 'bottom-[0px]'}`}>Welcome to my portfolio!</h1>
         <p className={`bg-sky-600 rounded-xl p-8 text-white text-2xl text-center relative transition-all duration-1000 ${state ? 'left-[999px]' : 'left-[0px]'}`}>
-          I am a full stack web developer who really enjoys trying to find 
-          new ways to solve novel and complex problems
-          <br />
-          <br />
-          My goal is to learn as much as I can about how the web works
+          {bio.map((str, i) => {
+            return (
+              <Fragment key={`AboutMe-${i}`}>
+                {str}
+                {i < bio.length - 1 ? [<br key={`AboutMe-${i}-br1`}/>, <br key={`AboutMe-${i}-br2`} />] : []}
+              </Fragment>
+            )
+          })}
         </p>
         <div className={`flex flex-wrap gap-8 relative transition-all duration-1000 lg:right-0 ${state ? 'right-[999px] lg:top-[999px]' : 'right-[0px] lg:top-[0px]'}`}>
           {['Email', 'Phone'].map(key => {

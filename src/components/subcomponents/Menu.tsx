@@ -1,5 +1,6 @@
 import { MenuItem, MenuState } from '../../types'
 import LinkTo from './LinkTo'
+import { contactMenuToggles } from '../../contentConfig'
 
 export default function Menu({
   icon,
@@ -25,7 +26,7 @@ export default function Menu({
           setShowMenu((oldState: MenuState) => {
             return {
               display: oldState.display ? false : true,
-              title: title
+              title,
             }
           })
         }}
@@ -36,10 +37,10 @@ export default function Menu({
       {!showMenu.display || showMenu.title !== title ? [] : 
         <>
           <div className='h-8 w-8 bg-sky-700 absolute top-14 rotate-45'></div>
-          <div className='bg-sky-700 absolute top-16 px-4 py-2 rounded-xl z-50 right-1 sm:right-auto'>
+          <div className='bg-sky-700 absolute top-16 px-4 py-2 rounded-xl z-10 right-1 sm:right-auto'>
             {content.map((key, i) => {
               return (
-                <div key={`${title}-${key.name}`} className={(key.name && ['Resume', 'GitHub'].includes(key.name) ? 'lg:hidden' : '')}>
+                <div key={`${title}-${key.name}`} className={(key.name && contactMenuToggles.includes(key.name) ? 'lg:hidden' : '')}>
                   <LinkTo 
                     content={key}
                     className='my-1 p-2 whitespace-nowrap flex justify-center items-center gap-4 hover:bg-sky-800 rounded-xl transition-colors duration-300' 

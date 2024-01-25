@@ -1,5 +1,6 @@
-import { MenuItem } from "./types";
+import { MenuItem } from './types';
 
+const ignoredRepos = [ 'nextjs-approuter-shadcn' ];
 const externalPages: { [key: string]: string } = {
   'odin-blog-client-service':      'https://odin-blog-client-service-production.up.railway.app',
   'odin-blog-admin-service':       'https://odin-blog-admin-service-production.up.railway.app',
@@ -14,60 +15,19 @@ const externalPages: { [key: string]: string } = {
   'odin-basic-informational-site': 'https://replit.com/@ted_jones671/odin-basic-informational-site',
 }
 
-const ignoredRepos = [ 'nextjs-approuter-shadcn' ];
-
+const portrait = require('./assets/images/portrait.jpg');
 const bio = [
-  ''
-  // `Welcome to my protfolio!`,
-  // `I am a full stack web developer`
-// `I am a full stack web developer who really enjoys trying to find 
-// new ways to solve novel and complex problems`,
-// 
-// `My goal is to learn as much as I can about how the web works`,
-
-// old
-//     `Welcome to my portfolio, I am a junior full stack web developer who is 
-//   especially interested in back-end systems.  I really enjoy trying to find 
-//   new ways to solve novel and complex problems, I think that's part of what 
-//   I find truly fascinating about programming.  And with lots of previous 
-//   troubleshooting experience fixing cars, computers, household appliances, 
-//   and much more has provided me with a diverse set of skills and perspectives 
-//   for looking at systems that are physical, digital, or some combination of the two.`,
-// 
-//     `In addition to this, I am very passionate about learning anything tech
-//   related, I just need to know how things work.  I built my first computer 
-//   when I was about 12 years old, and ever since then I have been trying to 
-//   dig further and further into how computers work.  I think that's a big part
-//   of why I push myself to use things like linux, that force you to dive deeper 
-//   and gain a higher level of understanding about how the software you are using 
-//   actually works.  It can be difficult, frustrating, and sometimes even down 
-//   right demeaning. But, if you stick with it, by the time you have solved whatever 
-//   problem you're having, you will have undoubtedly learned something.  Even if 
-//   it's something as simple as having a better understanding of how syntax 
-//   plugins are loaded into VIM.`,
-// 
-//     `At its core, I think I just love solving problems.  There is something so 
-//   empowering about breaking down complex problems into understandable pieces 
-//   and then figuring out how these pieces relate to each other and work together.  
-//   And with that information, determining what is needed, what is nice to have, and the 
-//   implications that changes could have on other systems.  It's a mental workout and 
-//   I love it.`,
+  'I am a full stack web developer who really enjoys trying to find new ways to solve novel and complex problems',
+  'My goal is to learn as much as I can about how the web works',
 ];
 
 const techExp: { [key: string]: string[] }[] = [{
   'Primary Language: TypeScript': [],
-  // "Languages I've Experimented with:": [
   'Less experienced languages': [
     'Python',
     'Bash',
     'Ruby',
   ],
-  // 'Frameworks/Libraries': [
-  //   'React & NextJS',
-  //   'ExpressJS',
-  //   "NodeJS (technically, it's a runtime)",
-  //   'Tailwind CSS',
-  // ]
   'My Stack': [
     'Runtime: Bun',
     'Database: Turso (SQLite)',
@@ -91,26 +51,6 @@ const techExp: { [key: string]: string[] }[] = [{
     ],
   }
 ];
-
-const devicons: { [key: string]: string } = {
-  'TypeScript': "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" ,
-  'JavaScript': "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" ,
-  'NextJS':     "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original-wordmark.svg" ,
-  'React':      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original-wordmark.svg" ,
-  'Tailwind':   "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original-wordmark.svg",
-  // 'Express':    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original-wordmark.svg",
-  'Bun':        "https://api.iconify.design/devicon/bun.svg",
-  'NodeJS':     "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original-wordmark.svg",
-  'Bash':       "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" ,
-  'MongoDB':    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original-wordmark.svg",
-  // 'MySQL':      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg" ,
-  'SQLite':     "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg",
-  'HTML':       "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain-wordmark.svg" ,
-  'CSS':        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain-wordmark.svg",
-  'Git':        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original-wordmark.svg",
-  'Ruby':       "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ruby/ruby-plain-wordmark.svg",
-  'Python':     "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original-wordmark.svg",
-}
 
 const frontEndProjectNames = [
   'html-to-pdf',
@@ -139,6 +79,7 @@ const cliRepos: { [key: string]: string[] } = {
     'odin-caesar-cipher',
     'odin-stock-picker',
     'advent-of-code-2023',
+    'google-foobar',
   ],
   'Command Line Games': [
     'odin-mastermind',
@@ -147,22 +88,25 @@ const cliRepos: { [key: string]: string[] } = {
   ],
 }
 
-// const contactMenu: MenuItem[] = [
-//   { href: require('./assets/documents/resume.pdf'), content: 'Resume', icon: 'fa-solid fa-file-invoice', isLink: true },
-//   { href: 'https://github.com/tediferJones', content: 'GitHub', icon: 'fa-brands fa-github', isLink: true },
-//   { href: 'mailto:theo_drz@live.com', content: 'Email', icon: 'fa-solid fa-envelope-open-text', isLink: true, },
-//   { href: 'tel:+14128891992', content: 'Phone', icon: 'fa-solid fa-phone-volume', isLink: true },
-// ];
-// 
-// const subsectionMenu: MenuItem[] = [
-//   { href: '#AboutMe', content: 'About Me' },
-//   { href: '#TechnicalExperience', content: 'Technical Experience' },
-//   { href: '#RecentProjects', content: 'Recent Projects' },
-//   { href: '#FrontEndProjects', content: 'Front-End Projects' },
-//   { href: '#BackEndProjects', content: 'Back-End Projects' },
-//   { href: '#CliProjects', content: 'CLI Projects' },
-//   { href: '#AllProjects', content: 'All Projects' },
-// ];
+const devicons: { [key: string]: string } = {
+  'TypeScript': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' ,
+  'JavaScript': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' ,
+  'NextJS':     'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original-wordmark.svg' ,
+  'React':      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original-wordmark.svg' ,
+  'Tailwind':   'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original-wordmark.svg',
+  // 'Express':    'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original-wordmark.svg',
+  'Bun':        'https://api.iconify.design/devicon/bun.svg',
+  'NodeJS':     'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original-wordmark.svg',
+  'Bash':       'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg' ,
+  'MongoDB':    'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original-wordmark.svg',
+  // 'MySQL':      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg' ,
+  'SQLite':     'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg',
+  'HTML':       'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain-wordmark.svg' ,
+  'CSS':        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain-wordmark.svg',
+  'Git':        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original-wordmark.svg',
+  'Ruby':       'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ruby/ruby-plain-wordmark.svg',
+  'Python':     'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original-wordmark.svg',
+}
 
 const linkOptions: { [key: string]: MenuItem } = {
   'Resume': { href: require('./assets/documents/resume.pdf'), icon: 'fa-solid fa-file-invoice', newTab: true },
@@ -179,17 +123,30 @@ const linkOptions: { [key: string]: MenuItem } = {
   'All Projects':         { href: '#AllProjects' },
 };
 
+const contactMenu = ['Resume', 'GitHub', 'Email', 'Phone'];
+const contactMenuToggles = ['Resume', 'GitHub'];
+const subsectionMenu = [
+  'About Me', 
+  'Technical Experience', 
+  'Recent Projects',
+  'Front-End Projects',
+  'Back-End Projects',
+  'CLI Projects',
+  'All Projects',
+];
 
 export {
   externalPages,
   ignoredRepos,
+  portrait,
   bio,
   techExp,
   devicons,
   frontEndProjectNames,
   backEndProjectNames,
   cliRepos,
-  // contactMenu,
-  // subsectionMenu,
+  contactMenu,
+  contactMenuToggles,
+  subsectionMenu,
   linkOptions,
 }
