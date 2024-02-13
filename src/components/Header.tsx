@@ -15,8 +15,8 @@ export default function Header() {
   return (
     <div className='bg-sky-600 text-gray-100 w-full flex justify-center sticky top-0 z-20 scroll-mb-0'>
       <div className='w-full sm:w-4/5 flex flex-col sm:flex-row justify-between items-center'>
-        <h1 className='text-3xl pb-2 p-8 sm:pb-8 font-bold'>Theo Drzewinski</h1>
-        <div className='text-xl flex gap-1 sm:gap-6 p-2'>
+        <h1 className='text-2xl pb-2 p-8 sm:pb-8 font-bold'>Theo Drzewinski</h1>
+        <div className='flex gap-1 sm:gap-6 p-2'>
           {contactMenuToggles.map((key, i) => {
             return <LinkTo className='hidden lg:flex gap-2 items-center hover:bg-sky-700 p-4 rounded-xl transition-colors duration-300'
               key={`toggleLink-${i}`}

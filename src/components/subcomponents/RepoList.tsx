@@ -7,7 +7,7 @@ export default function RepoList({ repos, title }: { repos: Repo[], title: strin
     <>
       {repos.map(repo => {
         return (
-          <div className='text-xl flex flex-col lg:flex-row mx-16 mb-6 bg-white rounded-xl' 
+          <div className='flex flex-col lg:flex-row mx-16 mb-6 bg-white rounded-xl' 
             key={`${title}-${repo.name}`}
           >
             <div className='flex-1 p-4 flex justify-between items-center gap-4 text-center'>

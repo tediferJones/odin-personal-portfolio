@@ -8,7 +8,7 @@ export default function DropDown({ repoArr, title }: { repoArr: Repo[], title: s
     <div className={`transition-colors duration-500 ${isOpen ? 'bg-sky-700' : 'bg-sky-600'}`}>
       <hr />
       <button id={title.replace(' & ', '-')}
-        className={'w-full text-2xl text-gray-100 p-4 px-8 flex justify-between scroll-mt-32'}
+        className={'w-full text-xl text-gray-100 p-4 px-8 flex justify-between scroll-mt-32'}
         value={`${title}RepoList`}
         onClick={() => setIsOpen(old => !old)}
       >

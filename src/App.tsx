@@ -38,7 +38,7 @@ export default function App() {
       <AboutMe />
       <TechnicalExperience />
       {!repos.length ?
-        <h1 className='p-4 my-12 text-3xl bg-sky-600 w-4/5 text-center text-white'>
+        <h1 className='p-4 my-12 text-xl bg-sky-600 w-4/5 text-center text-white rounded-xl'>
           Error: Couldn't fetch projects from GitHub, please try again later
         </h1> :
         <>
