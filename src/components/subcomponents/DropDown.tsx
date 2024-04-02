@@ -12,7 +12,7 @@ export default function DropDown({ repoArr, title }: { repoArr: Repo[], title: s
         value={`${title}RepoList`}
         onClick={() => setIsOpen(old => !old)}
       >
-        <div className='pointer-events-none'>{title} ({repoArr.length})</div>
+        <div className='pointer-events-none my-auto'>{title} ({repoArr.length})</div>
         <i className={`fa-solid fa-chevron-left flex justify-center items-center text-3xl pointer-events-none transition-all duration-500
           ${isOpen ? '-rotate-90' : 'rotate-0'}`
         }></i>
