@@ -9,6 +9,7 @@ const externalPages: { [key: string]: string } = {
   'odin-inventory-application':    'https://odin-inventory-application-prod-production.up.railway.app',
   'chat-layers':                   'https://chat-layers-production.up.railway.app/',
   'password-manager':              'https://pwdman.up.railway.app/',
+  'movie-tracker':                 'https://movie-tracker-production.up.railway.app/',
 
   'odin-hangman':                  'https://replit.com/@ted_jones671/odin-hangman#hangman.rb',
   'odin-mastermind':               'https://replit.com/@ted_jones671/odin-mastermind#mastermind.rb',
