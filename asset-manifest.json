@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/odin-personal-portfolio/static/css/main.33243209.css",
-    "main.js": "/odin-personal-portfolio/static/js/main.ddc1d1b7.js",
+    "main.js": "/odin-personal-portfolio/static/js/main.824fcfcd.js",
     "static/media/portrait.jpg": "/odin-personal-portfolio/static/media/portrait.067ad7a67d10617b0762.jpg",
-    "static/media/resume.pdf": "/odin-personal-portfolio/static/media/resume.058b144bb990f925d35c.pdf",
+    "static/media/resume.pdf": "/odin-personal-portfolio/static/media/resume.e7d57bed456afb248d29.pdf",
     "index.html": "/odin-personal-portfolio/index.html",
     "main.33243209.css.map": "/odin-personal-portfolio/static/css/main.33243209.css.map",
-    "main.ddc1d1b7.js.map": "/odin-personal-portfolio/static/js/main.ddc1d1b7.js.map"
+    "main.824fcfcd.js.map": "/odin-personal-portfolio/static/js/main.824fcfcd.js.map"
   },
   "entrypoints": [
     "static/css/main.33243209.css",
-    "static/js/main.ddc1d1b7.js"
+    "static/js/main.824fcfcd.js"
   ]
 }
