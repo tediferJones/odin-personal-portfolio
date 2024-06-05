@@ -10,6 +10,7 @@ const externalPages: { [key: string]: string } = {
   'chat-layers':                   'https://chat-layers-production.up.railway.app/',
   'password-manager':              'https://pwdman.up.railway.app/',
   'movie-tracker':                 'https://movie-tracker-production.up.railway.app/',
+  'scoreboard':                    'https://scoretracker.up.railway.app',
 
   'odin-hangman':                  'https://replit.com/@ted_jones671/odin-hangman#hangman.rb',
   'odin-mastermind':               'https://replit.com/@ted_jones671/odin-mastermind#mastermind.rb',
