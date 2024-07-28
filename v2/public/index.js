@@ -16,24 +16,8 @@ function getTag(type, props, children) {
   if (props)
     Object.keys(props).forEach((propKey) => node[propKey] = props[propKey]);
   if (children?.length)
-    node.append(...children);
+    node.append(...children.filter((child) => child != null));
   return node;
-}
-
-// src/components/Header.tsx
-function Header() {
-  return getTag("h1", { textContent: "THIS IS THE HEADER" });
-}
-
-// src/components/home.ts
-function home(repos) {
-  return getTag("div", { className: "w-full flex flex-col items-center" }, [
-    Header(),
-    !repos.length ? getTag("h1", {
-      className: "p-4 my-12 text-xl bg-sky-600 w-4/5 text-center text-white rounded-xl",
-      textContent: "Error: Couldn't fetch projects from GitHub, please try again later"
-    }) : getTag("div", {}, [])
-  ]);
 }
 
 // src/contentConfig.ts
@@ -67,6 +51,130 @@ var linkOptions = {
   "CLI Projects": { href: "#CliProjects" },
   "All Projects": { href: "#AllProjects" }
 };
+var contactMenu = ["Resume", "GitHub", "Email", "Phone"];
+var contactMenuToggles = ["Resume", "GitHub"];
+var subsectionMenu = [
+  "About Me",
+  "Technical Experience",
+  "Recent Projects",
+  "Front-End Projects",
+  "Back-End Projects",
+  "CLI Projects",
+  "All Projects"
+];
+
+// src/lib/getLinkInfo.ts
+function getLinkInfo(key) {
+  return {
+    name: key,
+    ...linkOptions[key]
+  };
+}
+
+// src/components/subcomponents/LinkTo.ts
+function LinkTo({
+  content,
+  className,
+  textClassName
+}) {
+  return getTag("a", {
+    className,
+    target: content.newTab ? "_blank" : "",
+    rel: content.newTab ? "noopener noreferrer" : "",
+    href: content.href
+  }, [
+    content.icon ? getTag("i", { className: content.icon }) : getTag("div"),
+    getTag("p", { className: textClassName, textContent: content.name })
+  ]);
+}
+
+// src/components/subcomponents/Menu.ts
+function Menu({
+  icon,
+  title,
+  content,
+  showMenu,
+  setShowMenu
+}) {
+  return getTag("div", {
+    className: "flex items-center flex-col justify-center relative",
+    onmouseleave: () => setShowMenu({ display: false, title: "" })
+  }, [
+    getTag("button", {
+      className: "flex gap-2 items-center hover:bg-sky-700 p-4 rounded-xl mr-4 sm:mr-0 transition-colors duration-300" + (showMenu.display && showMenu.title === title ? " bg-sky-700" : ""),
+      onClick: () => {
+        setShowMenu((oldState) => {
+          return {
+            display: oldState.display ? false : true,
+            title
+          };
+        });
+      }
+    }, [
+      getTag("i", { className: icon }),
+      getTag("p", { textContent: title })
+    ]),
+    !showMenu.display || showMenu.title !== title ? undefined : getTag("div", { className: "h-8 w-8 bg-sky-700 absolute top-14 rotate-45" }),
+    !showMenu.display || showMenu.title !== title ? undefined : getTag("div", { className: "bg-sky-700 absolute top-16 px-4 py-2 rounded-xl z-10 right-1 sm:right-auto" }, [
+      ...content.map((key, i) => {
+        return getTag("div", { className: key.name && contactMenuToggles.includes(key.name) ? "lg:hidden" : "" }, [
+          LinkTo({
+            content: key,
+            className: "my-1 p-2 whitespace-nowrap flex justify-center items-center gap-4 hover:bg-sky-800 rounded-xl transition-colors duration-300",
+            textClassName: "flex-1 flex justify-center"
+          }),
+          i < content.length - 1 ? getTag("hr") : undefined
+        ]);
+      })
+    ])
+  ]);
+}
+
+// src/components/Header.ts
+function Header() {
+  let showMenu = { display: false, title: "" };
+  function setShowMenu(obj) {
+    showMenu = obj;
+  }
+  return getTag("div", { className: "bg-sky-600 text-gray-100 w-full flex justify-center sticky top-0 z-20 scroll-mb-0" }, [
+    getTag("div", { className: "w-full sm:w-4/5 flex flex-col sm:flex-row justify-between items-center" }, [
+      getTag("h1", { className: "text-2xl pb-2 p-8 sm:pb-8 font-bold", textContent: "Theo Drzewinski" }),
+      getTag("div", { className: "flex gap-1 sm:gap-6 p-2" }, [
+        ...contactMenuToggles.map((key, i) => {
+          return LinkTo({
+            className: "hidden lg:flex gap-2 items-center hover:bg-sky-700 p-4 rounded-xl transition-colors duration-300",
+            content: { ...linkOptions[key], name: key }
+          });
+        }),
+        Menu({
+          icon: "fa-solid fa-at",
+          title: "Contact",
+          content: contactMenu.map((key) => getLinkInfo(key)),
+          showMenu,
+          setShowMenu
+        }),
+        Menu({
+          icon: "fa-solid fa-bars",
+          title: "Menu",
+          content: subsectionMenu.map((key) => getLinkInfo(key)),
+          showMenu,
+          setShowMenu
+        })
+      ])
+    ])
+  ]);
+}
+
+// src/components/home.ts
+function home(repos) {
+  return getTag("div", { className: "w-full flex flex-col items-center" }, [
+    Header(),
+    !repos.length ? getTag("h1", {
+      className: "p-4 my-12 text-xl bg-sky-600 w-4/5 text-center text-white rounded-xl",
+      textContent: "Error: Couldn't fetch projects from GitHub, please try again later"
+    }) : getTag("div", {}, [])
+  ]);
+}
 
 // src/index.ts
 fetch("https://api.github.com/users/tediferjones/repos?&per_page=100").then((res) => res.json()).then((data) => {

@@ -1,6 +1,6 @@
 import t from '@/lib/getTag';
 import type { Repo } from '@/types';
-import Header from './Header';
+import Header from '@/components/Header';
 
 export default function home(repos: Repo[]) {
   return t('div', { className: 'w-full flex flex-col items-center'}, [
