@@ -1,11 +1,12 @@
 import t from '@/lib/getTag';
 import type { Repo } from '@/types';
 import Header from '@/components/Header';
+import AboutMe from '@/components/AboutMe';
 
 export default function home(repos: Repo[]) {
   return t('div', { className: 'w-full flex flex-col items-center'}, [
     Header(),
-    // AboutMe(),
+    AboutMe(),
     // TechnicalExperience(),
     !repos.length ?
     t('h1', {
