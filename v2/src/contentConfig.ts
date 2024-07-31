@@ -56,13 +56,35 @@ const techExp: { [key: string]: string[] }[] = [{
 ];
 
 const frontEndProjectNames = [
+  // 'html-to-pdf',
+  // 'instagram-history-finder',
+  // 'odin-shopping-cart',
+  // 'odin-memory-card',
+
+  // 'odin-personal-portfolio',
   'html-to-pdf',
   'instagram-history-finder',
   'odin-shopping-cart',
   'odin-memory-card',
+  'odin-cv-application-v2',
+  // 'odin-cv-application',
+  'odin-weather-app',
+  'odin-todo-list',
+  'odin-restaurant-page',
+  'odin-tictactoe',
+  'odin-library',
+  'odin-admin-dashboard',
+  'odin-sign-up-form',
+  'odin-calculator',
+  'odin-etch-a-sketch',
+  'odin-rockpaperscissors',
+  'odin-landing-page',
 ];
 
 const backEndProjectNames = [
+  'scoreboard',
+  'movie-tracker',
+  'password-manager',
   'chat-layers',
   'odin-blog-api-service',
   'odin-blog-admin-service',

@@ -7,7 +7,8 @@ import RecentProjects from '@/components/RecentProjects';
 import FrontEndProjects from '@/components/FrontEndProjects';
 import BackEndProjects from '@/components/BackEndProjects';
 import CommandLineProjects from '@/components/CommandLineProjects';
-import AllProjects from './AllProjects';
+import AllProjects from '@/components/AllProjects';
+import FrontEndProjectsV2 from './FrontEndProjectsV2';
 
 export default function home(repos: Repo[]) {
   return t('div', { className: 'w-full flex flex-col items-center'}, [
@@ -19,7 +20,8 @@ export default function home(repos: Repo[]) {
         textContent: "Error: Couldn't fetch projects from GitHub, please try again later"
       }) ] : [
         RecentProjects({ repos }),
-        FrontEndProjects({ repos }),
+        // FrontEndProjects({ repos }),
+        FrontEndProjectsV2({ repos }),
         BackEndProjects({ repos }),
         CommandLineProjects({ repos }),
         AllProjects({ repos }),

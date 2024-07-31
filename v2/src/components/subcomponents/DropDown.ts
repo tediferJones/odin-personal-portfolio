@@ -4,7 +4,7 @@ import t from '@/lib/getTag';
 
 export default function DropDown({ repoArr, title }: { repoArr: Repo[], title: string }) {
   // const fixedTitle = title.replace(' ', '-')
-  const fixedTitle = title.replaceAll(' ', '-').replaceAll(' & ', '-')
+  const fixedTitle = title.replaceAll(' & ', '-').replaceAll(' ', '-')
   return (
     t('div', { className: `transition-colors duration-500 bg-sky-600`, id: `${fixedTitle}-container` }, [
       t('hr'),

@@ -10,7 +10,6 @@ export default function FrontEndProjects({ repos }: { repos: Repo[] }) {
       t('h1', { className: 'pb-8 text-2xl text-white', textContent: 'Front-End Projects (Hosted with GitHub Pages)' }),
       t('div', { className: 'grid grid-cols-1 md:grid-cols-2 gap-8' },
         repos.filter(repo => frontEndProjectNames.includes(repo.name)).map((repo: Repo) => {
-          console.log(repo.name)
           return (
             t('div', { className: 'w-full' }, [
               t('div', { className: 'flex justify-between items-center bg-white p-4 text-lg rounded-t-xl' }, [
