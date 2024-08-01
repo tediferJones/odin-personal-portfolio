@@ -725,6 +725,11 @@ video {
   margin-right: 4rem;
 }
 
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .my-1 {
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
@@ -806,6 +811,10 @@ video {
 
 .w-full {
   width: 100%;
+}
+
+.max-w-\[1440px\] {
+  max-width: 1440px;
 }
 
 .max-w-\[720px\] {
