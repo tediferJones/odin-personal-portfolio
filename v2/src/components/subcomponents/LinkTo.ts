@@ -12,7 +12,7 @@ export default function LinkTo({
 }) {
   return (
     t('a', {
-      className: className,
+      className: `text-lg ${className}`,
       target: content.newTab ? '_blank' : '',
       rel: content.newTab ? 'noopener noreferrer' : '',
       href: content.href,

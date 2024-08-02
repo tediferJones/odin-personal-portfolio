@@ -1,33 +1,24 @@
-// HOME COMPONENT CAN BE DELETED NOW
-// import home from '@/components/home'
 import { externalPages, ignoredRepos } from '@/contentConfig';
+import t from '@/lib/getTag';
 import type { Repo } from '@/types';
 
-
-import t from '@/lib/getTag';
-// import type { Repo } from '@/types';
 import Header from '@/components/Header';
 import AboutMe from '@/components/AboutMe';
 import TechnicalExperience from '@/components/TechnicalExperience';
 import RecentProjects from '@/components/RecentProjects';
-// import FrontEndProjects from '@/components/FrontEndProjects';
-// RENAME BACKEND PROJECTS TO FULL STACK PROJECTS
-import BackEndProjects from '@/components/BackEndProjects';
+import FrontEndProjects from '@/components/FrontEndProjects';
+import FullStackProjects from '@/components/FullStackProjects';
 import CommandLineProjects from '@/components/CommandLineProjects';
 import AllProjects from '@/components/AllProjects';
-import FrontEndProjectsV2 from '@/components/FrontEndProjectsV2';
 import Loading from '@/components/subcomponents/Loading';
 
 // TO DO
-// Delete home component
-// Increase font size for technical experience and repo name
 // Consider making header full width even at larger screen sizes
-// Rename FrontEndProjectsV2 and delete FrontEndProjects
-// Change tailwind icon to the one without words
 
 const loadingId = 'github'
 document.body.appendChild(
-  t('div', { id: 'root', className: 'mx-auto max-w-[1440px] w-full flex flex-col items-center' }, [
+  t('div', { id: 'root', className: 'w-full flex flex-col items-center' }, [
+  // t('div', { id: 'root', className: 'mx-auto max-w-2xl w-full flex flex-col items-center' }, [
     Header(),
     AboutMe(),
     TechnicalExperience(),
@@ -55,13 +46,11 @@ fetch('https://api.github.com/users/tediferjones/repos?&per_page=100')
       return repo
     }).sort((a, b) => new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime());
 
-    // document.body.appendChild(home(repos));
     document.querySelector(`#${loadingId}`)?.remove();
     [
       RecentProjects({ repos }),
-      // FrontEndProjects({ repos }),
-      FrontEndProjectsV2({ repos }),
-      BackEndProjects({ repos }),
+      FrontEndProjects({ repos }),
+      FullStackProjects({ repos }),
       CommandLineProjects({ repos }),
       AllProjects({ repos }),
     ].forEach(node => document.querySelector('#root')?.appendChild(node));

@@ -22,7 +22,7 @@ export default function Menu({
       }
     }, [
         t('button', {
-          className: 'flex gap-2 items-center hover:bg-sky-700 p-4 rounded-xl mr-4 sm:mr-0 transition-colors duration-300',
+          className: 'text-lg flex gap-2 items-center hover:bg-sky-700 p-4 rounded-xl mr-4 sm:mr-0 transition-colors duration-300',
           id: `${title}-trigger`,
           onclick: () => {
             document.querySelector(`#${title}-body`)?.classList.toggle('hidden')

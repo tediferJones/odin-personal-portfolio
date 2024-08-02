@@ -17,7 +17,7 @@ export default function BulletList({
           textContent: heading,
         }),
         ...points.map(point => t('li', {
-          className: 'w-4/5', 
+          className: 'w-4/5 text-lg', 
           textContent: point
         }))
       ])
